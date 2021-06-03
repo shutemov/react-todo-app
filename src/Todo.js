@@ -3,29 +3,25 @@ import React from "react"
 class Todo extends React.Component{
     constructor(props){
         super(props)
-        
+
         this.state = {
             isDone: false,
             isArchived: false
         }
 
-        this.handleCLick = this.handleCLick.bind(this)
+        this.switchDone = this.switchDone.bind(this)
     }
 
-    handleCLick(){
-        alert('hellow from event')
-        console.log(this)
+    switchDone(){       
+        this.setState({isDone:!this.state.isDone})
     }
 
-    testClick(){
-        console.log(this)
-    }
 
     render(){
         return (<div>
-            <h1 onClick={this.handleCLick}> I am todo </h1>
-            <h1 onClick={this.testClick}> I am todo </h1>
-        </div>        )
+            <h1> I am todo </h1>
+            <button onClick={this.switchDone}>{this.state.isDone?'undone':'done'}</button>
+        </div>)
     }
 }
 
