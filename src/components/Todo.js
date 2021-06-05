@@ -18,10 +18,13 @@ class Todo extends React.Component{
 
 
     render(){
-        return (<div>
-            <h1> I am todo </h1>
-            <button onClick={this.switchDone}>{this.state.isDone?'undone':'done'}</button>
-        </div>)
+        return (
+            <li data-attr={this.props.text}>
+                <h3> {this.props.text} </h3>
+                <button onClick={this.switchDone}>{this.state.isDone?'undone':'done'}</button>
+                <button onClick={this.props.onDelete}>Delete</button>
+            </li>
+        )
     }
 }
 
