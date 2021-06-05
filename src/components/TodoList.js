@@ -5,6 +5,7 @@ class TodoList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            name: 'Мой список дел',
             todos: [],
             done: []
         }
@@ -46,8 +47,11 @@ class TodoList extends React.Component {
     render() {
         return ( 
         <div>
+            <h2 contentEditable>{this.state.name}</h2>
             <input placeholder='Add todo'/> 
             <button onClick={this.addTodo}> + </button> 
+            <button onClick={this.addTodo}> + </button>
+            <hr/> 
             {this.createTodoListTemplate()}
         </div>
         )
