@@ -49,7 +49,6 @@ class TodoList extends React.Component {
         <div>
             <h2 contentEditable>{this.state.name}</h2>
             <input placeholder='Add todo'/> 
-            <button onClick={this.addTodo}> + </button> 
             <button onClick={this.addTodo}> + </button>
             <hr/> 
             {this.createTodoListTemplate()}
