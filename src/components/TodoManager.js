@@ -54,5 +54,22 @@ class TodoManager extends React.Component {
 
     this.setState({ todos });
   }
+
+  render() {
+    return (
+      <div>
+        <TodoList
+          name="Мой пэд"
+          todoList={this.state.todos}
+          todoDeleter={this.deleteTodo}
+          todoDoner={this.switchDoneTodo}
+          todoAdder={this.addTodo}
+        />
+        <hr />
+        <TodoDoneList name="Выполнено" todoList={this.state.todos} />
+      </div>
+    );
+  }
 }
+
 export default TodoManager;
