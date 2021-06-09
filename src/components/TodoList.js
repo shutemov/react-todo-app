@@ -8,10 +8,29 @@ class TodoList extends React.Component {
   }
 
   getUndoneTodos() {
-    console.log("this.props.todoList", this.props.todoList);
-    return this.props.todoList.filter((todo) => {
+    const undoneTodos = this.props.todoList.filter((todo) => {
       return !todo.isDone;
     });
+
+    return undoneTodos;
+  }
+
+  getTodosTemplate() {
+    const todosTemplate = this.getUndoneTodos().map(
+      ({ name, isDone }, index) => {
+        return (
+          <Todo
+            name={name}
+            todoDoner={this.props.todoDoner}
+            todoDeleter={this.props.todoDeleter}
+            isDone={isDone}
+            key={index}
+          />
+        );
+      }
+    );
+
+    return todosTemplate;
   }
 
   render() {
@@ -22,21 +41,7 @@ class TodoList extends React.Component {
         <button onClick={this.props.todoAdder}> + </button>
         <hr />
         <TodoListViewer>
-          <ol>
-            {this.getUndoneTodos().map(({ name, isDone }, index) => {
-              console.log("todo in map", name, isDone);
-
-              return (
-                <Todo
-                  name={name}
-                  todoDoner={this.props.todoDoner}
-                  todoDeleter={this.props.todoDeleter}
-                  isDone={isDone}
-                  key={index}
-                />
-              );
-            })}
-          </ol>
+          <ol>{this.getTodosTemplate()}</ol>
         </TodoListViewer>
       </div>
     );
