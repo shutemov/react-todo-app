@@ -7,6 +7,12 @@ class TodoList extends React.Component {
     super(props);
   }
 
+  getUndoneTodos() {
+    console.log("this.props.todoList", this.props.todoList);
+    return this.props.todoList.filter((todo) => {
+      return !todo.isDone;
+    });
+  }
 }
 
 export default TodoList;
