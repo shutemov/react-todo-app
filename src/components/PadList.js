@@ -6,6 +6,12 @@ class PadList extends React.Component {
     super(props);
   }
 
+  getPadsTemplate() {
+    return this.props.pads.map(({ id, title }) => (
+      <Pad id={id} title={title}></Pad>
+    ));
+  }
+
 }
 
 export default PadList;
