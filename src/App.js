@@ -1,6 +1,5 @@
-import './App.css';
-import TodoList from './components/TodoList'
-import Main from './components/Main'
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
