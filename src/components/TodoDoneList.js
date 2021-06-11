@@ -8,8 +8,25 @@ class TodoDoneList extends React.Component {
   }
 
   getDoneTodos() {
-    const doneTodos = this.props.todoList.filter((todo) => todo.isDone)
+    const doneTodos = this.props.todoList.filter((todo) => todo.isDone);
     return doneTodos;
+  }
+
+  getDoneTodosTemplate() {
+    const doneTodosTemplate = this.getDoneTodos().map(
+      ({ name, isDone }, index) => {
+        return (
+          <Todo
+            name={name}
+            todoDoner={this.props.todoDoner}
+            todoDeleter={this.props.todoDeleter}
+            isDone={isDone}
+            key={index}
+          />
+        );
+      }
+    );
+    return doneTodosTemplate;
   }
 
   render() {
