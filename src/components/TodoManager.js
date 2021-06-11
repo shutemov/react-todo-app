@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./TodoList";
 import TodoDoneList from "./TodoDoneList";
+import BackToMainButton from "./BackToMainButton";
 
 class TodoManager extends React.Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class TodoManager extends React.Component {
   render() {
     return (
       <div>
+        <BackToMainButton />
         <TodoList
           name="Мой пэд"
           todoList={this.state.todos}
