@@ -34,21 +34,7 @@ class TodoDoneList extends React.Component {
       <div>
         <h2>{this.props.name}</h2>
         <TodoListViewer>
-          <ol>
-            {this.getDoneTodos().map(({ name, isDone }, index) => {
-              console.log("todo in map", name, isDone);
-
-              return (
-                <Todo
-                  name={name}
-                  todoDoner={this.props.todoDoner}
-                  todoDeleter={this.props.todoDeleter}
-                  isDone={isDone}
-                  key={index}
-                />
-              );
-            })}
-          </ol>
+          <ol>{this.getDoneTodosTemplate()}</ol>
         </TodoListViewer>
       </div>
     );
