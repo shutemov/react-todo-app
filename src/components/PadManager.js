@@ -27,6 +27,8 @@ class PadManager extends React.Component {
     };
   }
 
+  addPad() {}
+
 }
 
 export default PadManager;
