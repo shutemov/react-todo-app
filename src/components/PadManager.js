@@ -29,6 +29,14 @@ class PadManager extends React.Component {
 
   addPad() {}
 
+  render() {
+    return (
+      <div>
+        <PadAdder />
+        <PadList pads={this.state.pads} />
+      </div>
+    );
+  }
 }
 
 export default PadManager;
