@@ -12,6 +12,9 @@ class PadList extends React.Component {
     ));
   }
 
+  render() {
+    return <div>{this.getPadsTemplate()}</div>;
+  }
 }
 
 export default PadList;
