@@ -11,6 +11,10 @@ class PadAdder extends React.Component {
     this.switchCreatingMode = this.switchCreatingMode.bind(this);
   }
 
+  switchCreatingMode() {
+    this.setState({ isCreating: !this.state.isCreating });
+  }
+
 }
 
 export default PadAdder;
