@@ -1,38 +1,42 @@
 .App {
   text-align: center;
+    "logo"
+    "pad-manager";
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  grid-area: logo;
+  align-self: center;
+  justify-self: center;
+  border: 1px solid;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.pad-manager {
+  grid-area: pad-manager;
+  background-color: coral;
+  border: 1px solid;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.pad-manager__pad-adder {
 }
 
-.App-link {
-  color: #61dafb;
+.pad-manager__create-button {
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pad-manager__title-input {
+}
+
+.pad-manager__pad-list {
+}
+
+.pad-manager__pad {
+}
+
+.pad-manager__delete-button {
+}
+
+.pad-manager__link {
 }
