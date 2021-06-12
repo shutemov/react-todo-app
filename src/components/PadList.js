@@ -8,7 +8,7 @@ class PadList extends React.Component {
 
   getPadsTemplate() {
     return this.props.pads.map(({ id, title }) => (
-      <Pad id={id} title={title}></Pad>
+      <Pad id={id} title={title} key={id}></Pad>
     ));
   }
 
