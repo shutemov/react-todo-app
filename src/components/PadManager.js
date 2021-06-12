@@ -31,7 +31,7 @@ class PadManager extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="pad-manager">
         <PadAdder />
         <PadList pads={this.state.pads} />
       </div>
