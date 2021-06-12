@@ -1,5 +1,6 @@
-.App {
-  text-align: center;
+.main-page {
+  display: grid;
+  grid-template-areas:
     "logo"
     "pad-manager";
   grid-template-rows: 1fr 1fr;
