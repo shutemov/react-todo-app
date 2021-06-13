@@ -13,7 +13,7 @@ class PadList extends React.Component {
   }
 
   render() {
-    return <div>{this.getPadsTemplate()}</div>;
+    return <React.Fragment>{this.getPadsTemplate()}</React.Fragment>;
   }
 }
 
