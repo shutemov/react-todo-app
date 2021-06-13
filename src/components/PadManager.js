@@ -23,6 +23,14 @@ class PadManager extends React.Component {
           id: 4,
           title: "pad4",
         },
+        {
+          id: 5,
+          title: "pad3",
+        },
+        {
+          id: 6,
+          title: "pad4",
+        },
       ],
     };
   }
@@ -32,8 +40,10 @@ class PadManager extends React.Component {
   render() {
     return (
       <div className="pad-manager">
-        <PadAdder />
-        <PadList pads={this.state.pads} />
+        <div className="pad-manager__subgrid-wrapper">
+          <PadAdder />
+          <PadList pads={this.state.pads} />
+        </div>
       </div>
     );
   }

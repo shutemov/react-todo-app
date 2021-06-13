@@ -17,11 +17,19 @@ class PadAdder extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.switchCreatingMode}>+</button>
+      <div className="pad-manager__pad-adder">
+        <div className="test">
+          
+        <button
+          className="pad-manager__create-button"
+          onClick={this.switchCreatingMode}
+        >
+          +
+        </button>
         {this.state.isCreating ? (
           <input type="text" placeholder="enter pad title" />
         ) : null}
+        </div>
       </div>
     );
   }

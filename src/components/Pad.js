@@ -8,7 +8,7 @@ class Pad extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="pad-manager__pad">
         <Link to={`/pads/${this.props.id}`}>{this.props.title}</Link>
         <button>Delete</button>
       </div>
