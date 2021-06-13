@@ -34,6 +34,8 @@
 }
 
 .pad-manager__create-button {
+  width: 150px;
+  height: 150px;
 }
 
 .pad-manager__title-input {
