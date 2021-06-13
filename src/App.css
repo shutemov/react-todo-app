@@ -11,9 +11,11 @@
 }
 
 .pad-manager {
-  grid-area: pad-manager;
-  background-color: coral;
-  border: 1px solid;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
 }
 
 .pad-manager__pad-adder {
