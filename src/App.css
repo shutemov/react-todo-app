@@ -16,6 +16,12 @@
   justify-items: center;
 }
 
+.pad-manager__subgrid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  gap: 40px;
+  align-items: center;
+  justify-items: center;
 }
 
 .pad-manager__pad-adder {
