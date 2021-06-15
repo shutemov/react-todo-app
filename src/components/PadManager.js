@@ -14,6 +14,12 @@ class PadManager extends React.Component {
   }
 
   createPad() {
+    const textInput = document.querySelector(".pad-manager__text-input");
+    const title = textInput.value;
+    const id = this.state.pads.length;
+
+    let newPads = this.state.pads.concat({ id, title });
+    this.setState({ pads: newPads });
   }
 
   render() {
