@@ -10,6 +10,7 @@ class PadAdder extends React.Component {
 
     this.switchCreatingMode = this.switchCreatingMode.bind(this);
     this.getConditionalTemplate = this.getConditionalTemplate.bind(this);
+    this.proxyCreatePad = this.proxyCreatePad.bind(this);
   }
 
   switchCreatingMode() {
@@ -47,6 +48,12 @@ class PadAdder extends React.Component {
       </div>
     );
   }
+
+  proxyCreatePad() {
+    this.props.padCreator();
+    this.switchCreatingMode();
+  }
+
   render() {
     return (
       <div className="pad-manager__pad-adder">
