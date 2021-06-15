@@ -9,9 +9,12 @@ class PadManager extends React.Component {
     this.state = {
       pads: [],
     };
+
+    this.createPad = this.createPad.bind(this);
   }
 
-  addPad() {}
+  createPad() {
+  }
 
   render() {
     return (
