@@ -59,6 +59,21 @@
 .pad-manager__create-button_active {
   display: none;
 }
+
+.pad-manager__input-container {
+  position: relative;
+}
+
+.pad-manager__text-input {
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.pad-manager__create-pad-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .pad-manager__pad-list {
