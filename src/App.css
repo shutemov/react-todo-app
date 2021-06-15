@@ -55,6 +55,10 @@
   left: -60px;
   top: 60px;
 }
+
+.pad-manager__create-button_active {
+  display: none;
+}
 }
 
 .pad-manager__pad-list {
