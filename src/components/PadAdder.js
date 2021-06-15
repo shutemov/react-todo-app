@@ -9,27 +9,48 @@ class PadAdder extends React.Component {
     };
 
     this.switchCreatingMode = this.switchCreatingMode.bind(this);
+    this.getConditionalTemplate = this.getConditionalTemplate.bind(this);
   }
 
   switchCreatingMode() {
     this.setState({ isCreating: !this.state.isCreating });
   }
 
-  render() {
-    return (
-      <div className="pad-manager__pad-adder">
-        <div className="test">
-          
-        <button
-          className="pad-manager__create-button"
+  getConditionalTemplate() {
+    if (!this.state.isCreating) {
+      return (
+        <div
+          className="pad-manager__create-button-container"
           onClick={this.switchCreatingMode}
+        >
+          <div className="pad-manager__create-button " />
+        </div>
+      );
+    }
+
+    return (
+      <div className="pad-manager__input-container">
+        <input
+          className="pad-manager__text-input"
+          type="text"
+          placeholder="Enter pad title here"
+        />
+        <button
+          className="pad-manager__create-pad-button"
+          type="submit"
+          placeholder="Enter pad title here"
+          value="+"
+          onClick={this.proxyCreatePad}
         >
           +
         </button>
-        {this.state.isCreating ? (
-          <input type="text" placeholder="enter pad title" />
-        ) : null}
-        </div>
+      </div>
+    );
+  }
+  render() {
+    return (
+      <div className="pad-manager__pad-adder">
+        {this.getConditionalTemplate()}
       </div>
     );
   }
