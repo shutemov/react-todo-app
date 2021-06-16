@@ -12,6 +12,12 @@ class Pad extends React.Component {
         <Link className="pad-manager__link" to={`/pads/${this.props.id}`}>
           {this.props.title}
         </Link>
+        <button
+          className="pad-manager__delete-button"
+          onClick={() => {
+            this.props.padDeleter(this.props.id);
+          }}
+        />
       </div>
     );
   }
