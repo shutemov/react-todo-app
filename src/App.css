@@ -103,4 +103,8 @@
 }
 
 .pad-manager__link {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20pt;
+  text-decoration: none;
+  color: #f5f3f5;
 }
