@@ -93,6 +93,13 @@
 
 .pad-manager__delete-button {
   position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  background-image: url("/src/assets/delete-pad-img-32x32.png");
+  border: none;
+  background-color: #989391;
 }
 
 .pad-manager__link {
