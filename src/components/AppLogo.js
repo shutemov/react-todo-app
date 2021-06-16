@@ -5,8 +5,8 @@ class Logo extends React.Component {
     return (
       <div className="logo">
         <picture>
-          <source srcSet="Todo_Pad.png" />
-          <img src="Todo_Pad.png" alt="Todo Pad" />
+          <source srcSet="todo-pad-logo.png" />
+          <img src="todo-pad-logo.png" alt="Todo Pad" />
         </picture>
       </div>
     );
