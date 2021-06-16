@@ -11,6 +11,7 @@ class PadManager extends React.Component {
     };
 
     this.createPad = this.createPad.bind(this);
+    this.deletePad = this.deletePad.bind(this);
   }
 
   createPad() {
@@ -19,6 +20,12 @@ class PadManager extends React.Component {
     const id = this.state.pads.length;
 
     let newPads = this.state.pads.concat({ id, title });
+    this.setState({ pads: newPads });
+  }
+
+  deletePad(id) {
+    const newPads = this.state.pads.filter((pad) => pad.id !== id);
+
     this.setState({ pads: newPads });
   }
 
