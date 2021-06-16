@@ -19,6 +19,8 @@ class PadManager extends React.Component {
     const title = textInput.value;
     const id = this.state.pads.length;
 
+    if (!title) return;
+
     let newPads = this.state.pads.concat({ id, title });
     this.setState({ pads: newPads });
   }
