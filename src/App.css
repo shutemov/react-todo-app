@@ -108,3 +108,15 @@
   text-decoration: none;
   color: #f5f3f5;
 }
+
+/*
+    PAD PAGE
+*/
+
+.pad-page {
+  display: grid;
+  grid-column: 1fr;
+  grid-row: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
