@@ -31,8 +31,8 @@ class TodoDoneList extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>{this.props.name}</h2>
+      <div className="pad-page__todo-done-list">
+        <div className="pad-manager__todo-done-list-title">{this.props.name}</div>
         <TodoListViewer>
           <ol>{this.getDoneTodosTemplate()}</ol>
         </TodoListViewer>
