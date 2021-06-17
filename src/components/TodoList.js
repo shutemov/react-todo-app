@@ -1,6 +1,7 @@
 import React from "react";
 import Todo from "./Todo";
 import TodoListViewer from "./TodoListViewer";
+import TodoAdder from "./TodoAdder";
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -35,14 +36,14 @@ class TodoList extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>{this.props.name}</h2>
-        <input placeholder="Add todo" />
-        <button onClick={this.props.todoAdder}> + </button>
+      <div className="pad-page__todo-list">
+        <div className="pad-manager_todo-list-title">{this.props.name}</div>
         <hr />
         <TodoListViewer>
           <ol>{this.getTodosTemplate()}</ol>
         </TodoListViewer>
+        <hr />
+        <TodoAdder todoAdder={this.props.todoAdder} />
       </div>
     );
   }
