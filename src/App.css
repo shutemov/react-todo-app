@@ -120,3 +120,31 @@
   align-items: center;
   justify-items: center;
 }
+
+.pad-page__back-to-main-link {
+  font-size: 3em;
+}
+
+.pad-page__todo-manager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  column-gap: 50px;
+}
+
+.pad-page__todo-list {
+  width: 370px;
+  min-height: 500px;
+  border: 1px solid;
+}
+
+.pad-page__todo-done-list {
+  border: 1px solid;
+}
+
+.pad-manager_todo-list-title,
+.pad-manager__todo-done-list-title {
+  margin-left: 40px;
+  margin-top: 30px;
+  font-size: 20pt;
+}
