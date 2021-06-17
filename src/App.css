@@ -1,7 +1,7 @@
 .main-page {
   display: grid;
   grid-column: 1fr;
-  grid-row: 2fr;
+  grid-row: 1fr 1fr;
 }
 
 .logo {
