@@ -8,7 +8,7 @@ class TodoListViewer extends React.Component{
 
     render(){
         return (
-            <div>
+            <div className="pad-page__todo-list-viewer">
                 {this.props.children}
             </div>
         )
