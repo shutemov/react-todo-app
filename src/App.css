@@ -149,3 +149,51 @@
   margin-top: 30px;
   font-size: 20pt;
 }
+
+.pad-page__todo-adder-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.pad-page__add-todo-input {
+  width: 100%;
+  height: 45px;
+  box-sizing: border-box;
+}
+
+.pad-page__add-todo-button {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 15pt;
+}
+
+.pad-page__todo-list-viewer {
+}
+
+.pad-page__todo-list-viewer > ol > li {
+  list-style-position: inside;
+}
+
+.pad-page__todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #c4c4c4;
+  border-radius: 30px;
+  height: 50px;
+}
+
+.pad-page__todo-button-wrapper {
+}
+
+.pad-page__todo-button-wrapper > button {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
