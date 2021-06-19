@@ -135,7 +135,9 @@
   column-gap: 10%;
 }
 
-.pad-page__todo-list {
+.pad-page__todo-list,
+.pad-page__todo-done-list {
+  position: relative;
   width: 370px;
   min-height: 500px;
   border: 1px solid;
