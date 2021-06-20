@@ -37,8 +37,8 @@ class TodoList extends React.Component {
   render() {
     return (
       <div className="pad-page__todo-list">
-        <div className="pad-page__todo-list-title">{this.props.name}</div>
-        <hr />
+        <div className="pad-page__todo-list-title ">{this.props.name}</div>
+        {/* <hr /> */}
         <TodoListViewer>
           <ol>{this.getTodosTemplate()}</ol>
         </TodoListViewer>
