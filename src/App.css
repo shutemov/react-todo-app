@@ -130,17 +130,17 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   justify-items: center;
-  align-items: center;
-  /* width: 100%; */
+  align-items: flex-start;
   column-gap: 10%;
 }
 
 .pad-page__todo-list,
 .pad-page__todo-done-list {
-  position: relative;
-  width: 370px;
-  min-height: 500px;
+  position: relative; /*for absolute position TodoAdder*/
+  width: 375px;
+  height: 500px;
   border: 1px solid;
+  overflow: hidden;
 }
 
 .pad-page__todo-list-title,
@@ -173,27 +173,59 @@
 }
 
 .pad-page__todo-list-viewer {
+  padding: 0 12px 0 12px;
+  height: 90%;
+  overflow-y: scroll ;
 }
 
-.pad-page__todo-list-viewer > ol > li {
+ol {
   list-style-position: inside;
+  padding-left: 0;
+  text-align: center;
 }
 
 .pad-page__todo {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background-color: #c4c4c4;
   border-radius: 30px;
-  height: 50px;
+  width: 100%;
+  min-height: 50px;
+  margin-top: 12px;
+}
+
+.pad-page__li-marker {
+  display: list-item;
+  width: 10%;
+}
+
+.pad-page__li-body {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: start;
+  text-align: start;
+}
+
+.pad-page__todo-text {
+  width: 80%;
+  height: auto;
+  word-wrap: break-all;
+}
+
+.pad-page__todo-text {
+  width: 75%;
+  word-wrap: break-word;
 }
 
 .pad-page__todo-button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
 }
 
 .pad-page__todo-button-wrapper > button {
   border-radius: 50%;
   width: 35px;
   height: 35px;
-  margin-right: 10px;
 }
