@@ -8,8 +8,8 @@ class Todo extends React.Component {
         <div className="pad-page__li-body">
           <div className="pad-page__todo-text"> {this.props.name} </div>
           <div className="pad-page__todo-button-wrapper">
-            <button onClick={this.props.todoDeleter}>X</button>
-            <button onClick={this.props.todoDoner}>D</button>
+            <button className="todo__done-button" onClick={this.props.todoDeleter}>🧺</button>
+            <button className="todo__delete-button" onClick={this.props.todoDoner}>✔️</button>
           </div>
         </div>
       </li>

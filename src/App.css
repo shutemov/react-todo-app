@@ -205,6 +205,7 @@ ol {
   align-items: center;
   justify-content: start;
   text-align: start;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif☺☺;
 }
 
 .pad-page__todo-text {
@@ -222,10 +223,20 @@ ol {
   display: flex;
   justify-content: space-between;
   width: 25%;
+  /* padding-right: 10px; */
 }
 
 .pad-page__todo-button-wrapper > button {
   border-radius: 50%;
   width: 35px;
   height: 35px;
+  border: none;
+}
+
+.todo__delete-button{
+  background-color: #f3f3f5;
+}
+
+.todo__done-button{
+  background-color: #edd0d0;
 }
