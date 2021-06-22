@@ -82,8 +82,12 @@ class TodoManager extends React.Component {
           todoDoner={this.switchDoneTodo}
           todoAdder={this.addTodo}
         />
-        {/* <hr /> */}
-        <TodoDoneList name="Выполнено" todoList={this.state.todos} />
+        <TodoDoneList
+          name="Выполнено"
+          todoList={this.state.todos}
+          undoneAll={this.undoneAll}
+          todoDoner={this.switchDoneTodo}
+        />
       </div>
     );
   }
