@@ -244,6 +244,28 @@ ol {
   background-color: #f3f3f5;
 }
 
-.todo__done-button{
-  background-color: #edd0d0;
+.todo-done-list__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  padding-top: 30px;
+  padding-left: 40px;
+}
+
+.todo-done-list__drop-button {
+  border-radius: 40px;
+  width: 100px;
+  height: 40px;
+  background-color: #c4c4c4;
+  border: none;
+  margin-left: 30px;
+}
+
+.done-todo__switch-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 40px;
+  background-color: #d7e9de;
+  border: none;
+  margin-left: 40%;
 }
