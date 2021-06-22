@@ -1,6 +1,7 @@
 import React from "react";
 import TodoManager from "./TodoManager";
-import BackToMainButton from "./BackToMainButton";
+import BackToMainButton from "./BackToMainLogo";
+import AppLogo from "./AppLogo";
 
 class PadPage extends React.Component {
   render() {
