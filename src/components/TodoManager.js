@@ -14,6 +14,7 @@ class TodoManager extends React.Component {
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
     this.switchDoneTodo = this.switchDoneTodo.bind(this);
+    this.undoneAll = this.undoneAll.bind(this);
   }
 
   addTodo() {
@@ -57,6 +58,15 @@ class TodoManager extends React.Component {
     });
 
     this.setState({ todos });
+  }
+
+  undoneAll() {
+    const undoneTodos = this.state.todos.map((todo) => {
+      todo.isDone = false;
+      return todo;
+    });
+
+    this.setState({ todos: undoneTodos });
   }
 
   render() {
