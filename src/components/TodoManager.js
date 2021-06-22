@@ -1,7 +1,7 @@
 import React from "react";
 import TodoList from "./TodoList";
 import TodoDoneList from "./TodoDoneList";
-import BackToMainButton from "./BackToMainButton";
+import BackToMainButton from "./BackToMainLogo";
 
 class TodoManager extends React.Component {
   constructor(props) {
@@ -17,7 +17,8 @@ class TodoManager extends React.Component {
   }
 
   addTodo() {
-    const name = document.querySelector("input").value;
+    const inputElement = document.querySelector("input");
+    const name = inputElement.value;
     const isDone = false;
     const newTodo = {
       name,
@@ -27,6 +28,8 @@ class TodoManager extends React.Component {
     let todos = [...this.state.todos, newTodo];
 
     this.setState({ todos });
+
+    inputElement.value = "";
   }
 
   deleteTodo(e) {
