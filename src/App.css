@@ -134,8 +134,8 @@
   column-gap: 10%;
 }
 
-.pad-page__todo-list,
-.pad-page__todo-done-list {
+.todo-list,
+.todo-done-list {
   position: relative; /*for absolute position TodoAdder*/
   width: 375px;
   height: 500px;
@@ -143,11 +143,16 @@
   overflow: hidden;
 }
 
-.pad-page__todo-list-title,
-.pad-page__todo-done-list-title {
+.todo-list__title {
   margin-left: 40px;
   margin-top: 30px;
   font-size: 20pt;
+}
+
+.todo-done-list__title {
+  font-size: 20pt;
+  /* margin-left: 40px;
+  margin-top: 30px; */
 }
 
 .pad-page__todo-adder-wrapper {
@@ -172,10 +177,10 @@
   font-size: 15pt;
 }
 
-.pad-page__todo-list-viewer {
+.todo-list-viewer {
   padding: 0 12px 0 12px;
   height: 90%;
-  overflow-y: scroll ;
+  overflow-y: scroll;
 }
 
 ol {
@@ -184,7 +189,8 @@ ol {
   text-align: center;
 }
 
-.pad-page__todo {
+.todo,
+.done-todo {
   display: flex;
   align-items: center;
   background-color: #c4c4c4;
@@ -194,46 +200,47 @@ ol {
   margin-top: 12px;
 }
 
-.pad-page__li-marker {
+.todo__li-marker,
+.done-todo__li-marker {
   display: list-item;
   width: 10%;
 }
 
-.pad-page__li-body {
+.todo__li-body,
+.done-todo__li-body {
   display: flex;
   width: 90%;
   align-items: center;
   justify-content: start;
   text-align: start;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif☺☺;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif☺☺;
 }
 
-.pad-page__todo-text {
-  width: 80%;
-  height: auto;
-  word-wrap: break-all;
-}
-
-.pad-page__todo-text {
+.todo__text,
+.done-todo__text {
   width: 75%;
   word-wrap: break-word;
 }
 
-.pad-page__todo-button-wrapper {
+.todo__button-wrapper,
+.done-todo__button-wrapper {
   display: flex;
   justify-content: space-between;
   width: 25%;
-  /* padding-right: 10px; */
 }
 
-.pad-page__todo-button-wrapper > button {
+.todo__button-wrapper > button {
   border-radius: 50%;
   width: 35px;
   height: 35px;
   border: none;
 }
 
-.todo__delete-button{
+.todo__done-button {
+  background-color: #edd0d0;
+}
+
+.todo__delete-button {
   background-color: #f3f3f5;
 }
 
