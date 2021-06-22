@@ -17,7 +17,9 @@ class Pad extends React.Component {
           onClick={() => {
             this.props.padDeleter(this.props.id);
           }}
-        />
+        >
+          ❌
+        </button>
       </div>
     );
   }
