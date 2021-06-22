@@ -21,6 +21,9 @@ class TodoManager extends React.Component {
     const inputElement = document.querySelector("input");
     const name = inputElement.value;
     const isDone = false;
+
+    if (!name) return;
+
     const newTodo = {
       name,
       isDone,
