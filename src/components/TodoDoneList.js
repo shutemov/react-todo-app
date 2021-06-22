@@ -1,6 +1,6 @@
 import React from "react";
 import TodoListViewer from "./TodoListViewer";
-import Todo from "./Todo";
+import DoneTodo from "./DoneTodo";
 
 class TodoDoneList extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class TodoDoneList extends React.Component {
     const doneTodosTemplate = this.getDoneTodos().map(
       ({ name, isDone }, index) => {
         return (
-          <Todo
+          <DoneTodo
             name={name}
             todoDoner={this.props.todoDoner}
             todoDeleter={this.props.todoDeleter}
@@ -31,8 +31,18 @@ class TodoDoneList extends React.Component {
 
   render() {
     return (
-      <div className="pad-page__todo-done-list">
-        <div className="pad-page__todo-done-list-title">{this.props.name}</div>
+      <div className="todo-done-list">
+        <div className="todo-done-list__header">
+          <div className="todo-done-list__title">
+            {this.props.name}
+          </div>
+          <button
+            className="todo-done-list__drop-button"
+            onClick={this.props.undoneAll}
+          >
+            Очистить
+          </button>
+        </div>
         <TodoListViewer>
           <ol>{this.getDoneTodosTemplate()}</ol>
         </TodoListViewer>

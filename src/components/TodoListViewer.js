@@ -1,5 +1,5 @@
 import React from 'react'
-import Todo from './Todo'
+import Todo from './DefaultTodo'
 
 class TodoListViewer extends React.Component{
     constructor(props){
@@ -8,7 +8,7 @@ class TodoListViewer extends React.Component{
 
     render(){
         return (
-            <div className="pad-page__todo-list-viewer">
+            <div className="todo-list-viewer">
                 {this.props.children}
             </div>
         )

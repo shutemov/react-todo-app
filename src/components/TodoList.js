@@ -1,13 +1,9 @@
 import React from "react";
-import Todo from "./Todo";
+import Todo from "./DefaultTodo";
 import TodoListViewer from "./TodoListViewer";
 import TodoAdder from "./TodoAdder";
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   getUndoneTodos() {
     const undoneTodos = this.props.todoList.filter((todo) => {
       return !todo.isDone;
@@ -36,9 +32,8 @@ class TodoList extends React.Component {
 
   render() {
     return (
-      <div className="pad-page__todo-list">
-        <div className="pad-page__todo-list-title ">{this.props.name}</div>
-        {/* <hr /> */}
+      <div className="todo-list">
+        <div className="todo-list__title ">{this.props.name}</div>
         <TodoListViewer>
           <ol>{this.getTodosTemplate()}</ol>
         </TodoListViewer>
