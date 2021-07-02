@@ -103,6 +103,10 @@ class IndexedDBManager {
       };
     });
   }
+
+  readPadById(id) {}
+  updatePadById(pad) {}
+  deletePadById(id) {}
 }
 
 export default IndexedDBManager;
