@@ -2,19 +2,12 @@ import React from "react";
 import Pad from "./Pad";
 
 class PadList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   getPadsTemplate() {
-    return this.props.pads.map(({ id, title }) => (
-      <Pad
-        id={id}
-        title={title}
-        key={id}
-        padDeleter={this.props.padDeleter}
-      ></Pad>
+    const mappedPads = this.props.pads.map(({ id, title }) => (
+      <Pad id={id} title={title} key={id} padDelete={this.props.padDelete} />
     ));
+
+    return mappedPads;
   }
 
   render() {
