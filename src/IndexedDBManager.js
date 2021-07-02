@@ -20,6 +20,12 @@ class IndexedDBManager {
     this.db = openRequestResult;
   }
 
+  _getTransaction(type) {
+    if (!this.db) return;
+    const transaction = this.db.transaction(this.storeName, type);
+    return transaction;
+  }
+
   DBOpenRequestHandler(openRequest) {
     return new Promise((resolve, reject) => {
       openRequest.onerror = () => {
