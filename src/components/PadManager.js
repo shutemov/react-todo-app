@@ -1,17 +1,23 @@
 import React from "react";
 import PadAdder from "./PadAdder";
 import PadList from "./PadList";
+import IndexedDBManager from "../IndexedDBManager";
 
 class PadManager extends React.Component {
   constructor(props) {
+    console.log("start PadManager constructor");
+
     super(props);
 
     this.state = {
-      pads: [],
+      pads: [{ id: 100, title: "test" }],
     };
 
     this.createPad = this.createPad.bind(this);
     this.deletePad = this.deletePad.bind(this);
+    this._prepareIndexedDB = this._prepareIndexedDB.bind(this);
+
+    console.log("end PadManager constructor");
   }
 
   createPad() {
