@@ -50,6 +50,16 @@ class PadManager extends React.Component {
     await this.indexedDBManager.init();
   }
 
+  async componentDidMount() {
+    try {
+      await this._prepareIndexedDB();
+      const pads = await this.indexedDBManager.readAllPads();
+      this.setState({ pads });
+    } catch (err) {
+      console.log("componentDidMount error", err);
+    }
+  }
+
   render() {
     return (
       <div className="pad-manager">
