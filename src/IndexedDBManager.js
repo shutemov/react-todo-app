@@ -20,6 +20,22 @@ class IndexedDBManager {
     this.db = openRequestResult;
   }
 
+  DBOpenRequestHandler(openRequest) {
+    return new Promise((resolve, reject) => {
+      openRequest.onerror = () => {
+        reject(openRequest.error);
+      };
+
+      openRequest.onsuccess = () => {
+        resolve(openRequest.result);
+      };
+
+      openRequest.onupgradeneeded = (event) => {
+        this._createPadStore(event);
+        resolve(openRequest.result);
+      };
+    });
+  }
 }
 
 export default IndexedDBManager;
