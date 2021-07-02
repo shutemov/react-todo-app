@@ -37,10 +37,14 @@ class PadManager extends React.Component {
     }
   }
 
-  deletePad(id) {
-    const newPads = this.state.pads.filter((pad) => pad.id !== id);
-
-    this.setState({ pads: newPads });
+  async deletePad(id) {
+    try {
+      await this.indexedDBManager.deletePadById(id);
+      const pads = await this.indexedDBManager.readAllPads();
+      this.setState({ pads });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async _prepareIndexedDB() {
@@ -53,6 +57,7 @@ class PadManager extends React.Component {
   async componentDidMount() {
     try {
       await this._prepareIndexedDB();
+
       const pads = await this.indexedDBManager.readAllPads();
       this.setState({ pads });
     } catch (err) {
