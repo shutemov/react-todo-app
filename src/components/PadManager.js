@@ -20,15 +20,21 @@ class PadManager extends React.Component {
     console.log("end PadManager constructor");
   }
 
-  createPad() {
-    const textInput = document.querySelector(".pad-manager__text-input");
-    const title = textInput.value;
-    const id = this.state.pads.length;
+  async createPad() {
+    try {
+      const textInput = document.querySelector(".pad-manager__text-input");
+      const title = textInput.value;
 
-    if (!title) return;
+      if (!title) return;
 
-    let newPads = this.state.pads.concat({ id, title });
-    this.setState({ pads: newPads });
+      const newPad = { title };
+      await this.indexedDBManager.createPad(newPad);
+      const pads = await this.indexedDBManager.readAllPads();
+
+      this.setState({ pads });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   deletePad(id) {
