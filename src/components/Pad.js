@@ -15,7 +15,7 @@ class Pad extends React.Component {
         <button
           className="pad-manager__delete-button"
           onClick={() => {
-            this.props.padDeleter(this.props.id);
+            this.props.padDelete(this.props.id);
           }}
         >
           ❌
