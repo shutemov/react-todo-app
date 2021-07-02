@@ -43,6 +43,13 @@ class PadManager extends React.Component {
     this.setState({ pads: newPads });
   }
 
+  async _prepareIndexedDB() {
+    const [dbName, storeName] = ["TodoPad", "Pads"];
+
+    this.indexedDBManager = new IndexedDBManager(dbName, storeName);
+    await this.indexedDBManager.init();
+  }
+
   render() {
     return (
       <div className="pad-manager">
