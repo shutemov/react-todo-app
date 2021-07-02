@@ -64,8 +64,8 @@ class PadManager extends React.Component {
     return (
       <div className="pad-manager">
         <div className="pad-manager__subgrid-wrapper">
-          <PadAdder padCreator={this.createPad} />
-          <PadList pads={this.state.pads} padDeleter={this.deletePad} />
+          <PadAdder padCreate={this.createPad} />
+          <PadList pads={this.state.pads} padDelete={this.deletePad} />
         </div>
       </div>
     );
