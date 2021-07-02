@@ -58,6 +58,25 @@ class IndexedDBManager {
       };
     });
   }
+
+  createPad(pad) {
+    let transaction = this.db.transaction(this.storeName, "readwrite");
+    let pads = transaction.objectStore(this.storeName);
+
+    let request = pads.add(pad);
+
+    return new Promise((resolve, reject) => {
+      request.onsuccess = () => {
+        console.log("Pad добавлен в хранилище", request.result);
+        resolve(true);
+      };
+
+      request.onerror = () => {
+        reject(request.error);
+      };
+    });
+  }
+
 }
 
 export default IndexedDBManager;
