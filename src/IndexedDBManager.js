@@ -130,6 +130,22 @@ class IndexedDBManager {
     });
   }
 
+  deletePadById(id) {
+    const transaction = this._getTransaction("readwrite");
+    const padStore = transaction.objectStore(this.storeName);
+
+    const request = padStore.delete(id);
+
+    return new Promise((resolve, reject) => {
+      request.onsuccess = () => {
+        resolve();
+      };
+
+      request.onerror = () => {
+        reject(request.error);
+      };
+    });
+  }
 }
 
 export default IndexedDBManager;
