@@ -10,7 +10,7 @@ class PadAdder extends React.Component {
 
     this.switchCreatingMode = this.switchCreatingMode.bind(this);
     this.getConditionalTemplate = this.getConditionalTemplate.bind(this);
-    this.proxyCreatePad = this.proxyCreatePad.bind(this);
+    this.proxyCreatePad = this.createPadProxy.bind(this);
   }
 
   switchCreatingMode() {
@@ -41,7 +41,7 @@ class PadAdder extends React.Component {
           type="submit"
           placeholder="Enter pad title here"
           value="+"
-          onClick={this.proxyCreatePad}
+          onClick={this.createPadProxy}
         >
           +
         </button>
@@ -49,8 +49,8 @@ class PadAdder extends React.Component {
     );
   }
 
-  proxyCreatePad() {
-    this.props.padCreator();
+  createPadProxy() {
+    this.props.padCreate();
     this.switchCreatingMode();
   }
 
