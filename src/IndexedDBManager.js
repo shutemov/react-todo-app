@@ -12,6 +12,14 @@ class IndexedDBManager {
       console.log(error);
     }
   }
+
+  async _openConnection() {
+    let version = 1;
+    let openRequest = indexedDB.open(this.dbName, version);
+    let openRequestResult = await this.DBOpenRequestHandler(openRequest);
+    this.db = openRequestResult;
+  }
+
 }
 
 export default IndexedDBManager;
