@@ -77,6 +77,32 @@ class IndexedDBManager {
     });
   }
 
+  readAllPads() {
+    let transaction = this.db.transaction(this.storeName, "readonly");
+    let padStore = transaction.objectStore(this.storeName);
+    let cursorRequest = padStore.openCursor();
+
+    const pads = [];
+
+    return new Promise((resolve, reject) => {
+      cursorRequest.onsuccess = () => {
+        let cursor = cursorRequest.result;
+        if (!cursor) {
+          resolve(pads);
+          return;
+        }
+
+        let storeObject = cursor.value;
+        let [id, title] = [cursor.primaryKey, storeObject.title];
+        pads.push({ id, title });
+        cursor.continue();
+      };
+
+      cursorRequest.onerror = () => {
+        reject(cursorRequest.errors);
+      };
+    });
+  }
 }
 
 export default IndexedDBManager;
