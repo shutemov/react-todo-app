@@ -36,6 +36,28 @@ class IndexedDBManager {
       };
     });
   }
+
+  //default sync method, but we use promise for oncomplete checking
+  _createPadStore() {
+    if (!this.db) return;
+
+    const options = {
+      autoIncrement: true,
+    };
+
+    this.db.createObjectStore(this.storeName, options);
+    let transaction = this.db.transaction;
+
+    return new Promise((resolve, reject) => {
+      transaction.oncomplete = () => {
+        resolve();
+      };
+
+      transaction.onerror = (request) => {
+        reject(request.error);
+      };
+    });
+  }
 }
 
 export default IndexedDBManager;
