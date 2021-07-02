@@ -48,6 +48,7 @@ class IndexedDBManager {
     if (!this.db) return;
 
     const options = {
+      keyPath: "id",
       autoIncrement: true,
     };
 
