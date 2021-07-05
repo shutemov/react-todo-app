@@ -20,7 +20,7 @@ class PadPage extends React.Component {
     return (
       <div className="pad-page">
         <BackToMainButton />
-        <TodoManager />
+        <TodoManager padId={this.state.padId} />
       </div>
     );
   }
