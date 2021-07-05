@@ -85,7 +85,7 @@ class IndexedDBManager {
   }
 
   readAllPads() {
-    let transaction = this.db.transaction(this.storeName, "readonly");
+    let transaction = this._getTransaction("readonly");
     let padStore = transaction.objectStore(this.storeName);
     let cursorRequest = padStore.openCursor();
 
