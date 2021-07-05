@@ -1,7 +1,8 @@
 import React from "react";
 import TodoManager from "./TodoManager";
 import BackToMainButton from "./BackToMainLogo";
-import AppLogo from "./AppLogo";
+import IndexedDBManager from "../IndexedDBManager";
+import { withRouter } from "react-router-dom";
 
 class PadPage extends React.Component {
   render() {
