@@ -106,16 +106,16 @@ class TodoManager extends React.Component {
     return (
       <div className="pad-page__todo-manager">
         <TodoList
-          name="%pad name%"
-          todoList={this.state.todos}
+          title={this.props.todoListTitle}
+          todoList={this.state.pad.todos}
           todoDeleter={this.deleteTodo}
           todoDoner={this.switchDoneTodo}
           todoAdder={this.addTodo}
         />
         <TodoDoneList
           name="Выполнено"
-          todoList={this.state.todos}
-          undoneAll={this.undoneAll}
+          todoList={this.state.pad.todos}
+          undoneAll={this.doUndoneAll}
           todoDoner={this.switchDoneTodo}
         />
       </div>
