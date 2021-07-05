@@ -27,7 +27,8 @@ class PadManager extends React.Component {
 
       if (!title) return;
 
-      const newPad = { title };
+      const todos = [];
+      const newPad = { title, todos };
       await this.indexedDBManager.createPad(newPad);
       const pads = await this.indexedDBManager.readAllPads();
 
