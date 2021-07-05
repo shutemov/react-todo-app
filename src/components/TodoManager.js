@@ -41,16 +41,20 @@ class TodoManager extends React.Component {
     inputElement.value = "";
   }
 
-  deleteTodo(e) {
+  async deleteTodo(e) {
     const deleteCandidateElement = e.target.closest("li");
     const deleteCandidateTodoText =
       deleteCandidateElement.getAttribute("data-todo-text");
 
-    let todos = this.state.todos.filter((todo) => {
+    const todos = this.state.pad.todos.filter((todo) => {
       return todo.name != deleteCandidateTodoText;
     });
 
-    this.setState({ todos });
+    const pad = this.state.pad;
+    pad.todos = todos;
+    await this.indexedDBManager.updatePad(pad);
+
+    this.setState({ pad });
   }
 
   switchDoneTodo(e) {
