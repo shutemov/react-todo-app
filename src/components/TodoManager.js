@@ -18,7 +18,7 @@ class TodoManager extends React.Component {
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
     this.switchDoneTodo = this.switchDoneTodo.bind(this);
-    this.undoneAll = this.undoneAll.bind(this);
+    this.doUndoneAll = this.doUndoneAll.bind(this);
   }
 
   addTodo() {
