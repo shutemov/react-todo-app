@@ -138,7 +138,7 @@ class IndexedDBManager {
         resolve(request.result);
       };
 
-      request.error = () => {
+      request.onerror = () => {
         reject(request.error);
       };
     });
