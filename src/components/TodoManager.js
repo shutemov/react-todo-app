@@ -21,7 +21,7 @@ class TodoManager extends React.Component {
     this.doUndoneAll = this.doUndoneAll.bind(this);
   }
 
-  addTodo() {
+  async addTodo() {
     const inputElement = document.querySelector("input");
     const name = inputElement.value;
     const isDone = false;
@@ -33,10 +33,11 @@ class TodoManager extends React.Component {
       isDone,
     };
 
-    let todos = [...this.state.todos, newTodo];
+    const pad = this.state.pad;
+    pad.todos = [...pad.todos, newTodo];
+    await this.indexedDBManager.updatePad(pad);
 
-    this.setState({ todos });
-
+    this.setState({ pad });
     inputElement.value = "";
   }
 
