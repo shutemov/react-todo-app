@@ -11,6 +11,11 @@ class PadPage extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const padId = +this.props.match.params.id;
+    this.setState({ padId });
+  }
+
   render() {
     return (
       <div className="pad-page">
