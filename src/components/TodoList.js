@@ -33,7 +33,7 @@ class TodoList extends React.Component {
   render() {
     return (
       <div className="todo-list">
-        <div className="todo-list__title ">{this.props.name}</div>
+        <div className="todo-list__title ">{this.props.title}</div>
         <TodoListViewer>
           <ol>{this.getTodosTemplate()}</ol>
         </TodoListViewer>
