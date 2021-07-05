@@ -75,11 +75,15 @@ class TodoManager extends React.Component {
     this.setState({ todos });
   }
 
-  undoneAll() {
-    const undoneTodos = this.state.todos.map((todo) => {
+  async doUndoneAll() {
+    const undoneTodos = this.state.pad.todos.map((todo) => {
       todo.isDone = false;
       return todo;
     });
+
+    const pad = this.state.pad;
+    pad.todos = undoneTodos;
+    await this.indexedDBManager.updatePad(pad);
 
     this.setState({ todos: undoneTodos });
   }
