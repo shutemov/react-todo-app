@@ -88,6 +88,20 @@ class TodoManager extends React.Component {
     this.setState({ todos: undoneTodos });
   }
 
+  async componentDidMount() {
+    try {
+      this.indexedDBManager = new IndexedDBManager("TodoPad", "Pads");
+      await this.indexedDBManager.init();
+
+      const padId = this.props.padId;
+      const pad = await this.indexedDBManager.readPadById(padId);
+    
+      this.setState({ pad });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   render() {
     return (
       <div className="pad-page__todo-manager">
