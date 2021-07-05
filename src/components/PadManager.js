@@ -15,6 +15,7 @@ class PadManager extends React.Component {
 
     this.createPad = this.createPad.bind(this);
     this.deletePad = this.deletePad.bind(this);
+    this.updatePad = this.updatePad.bind(this);
     this._prepareIndexedDB = this._prepareIndexedDB.bind(this);
 
     console.log("end PadManager constructor");
@@ -78,7 +79,11 @@ class PadManager extends React.Component {
       <div className="pad-manager">
         <div className="pad-manager__subgrid-wrapper">
           <PadAdder padCreate={this.createPad} />
-          <PadList pads={this.state.pads} padDelete={this.deletePad} />
+          <PadList
+            pads={this.state.pads}
+            padDelete={this.deletePad}
+            padUpdate={this.updatePad}
+          />
         </div>
       </div>
     );
