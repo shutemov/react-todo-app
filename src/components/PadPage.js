@@ -26,4 +26,4 @@ class PadPage extends React.Component {
   }
 }
 
-export default PadPage;
+export default withRouter(PadPage);
