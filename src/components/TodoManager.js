@@ -1,7 +1,7 @@
 import React from "react";
 import TodoList from "./TodoList";
 import TodoDoneList from "./TodoDoneList";
-import BackToMainButton from "./BackToMainLogo";
+import IndexedDBManager from "../IndexedDBManager";
 
 class TodoManager extends React.Component {
   constructor(props) {
