@@ -8,7 +8,11 @@ class TodoManager extends React.Component {
     super(props);
 
     this.state = {
-      todos: [],
+      pad: {
+        id: undefined,
+        title: undefined,
+        todos: [],
+      },
     };
 
     this.addTodo = this.addTodo.bind(this);
