@@ -57,17 +57,20 @@ class TodoManager extends React.Component {
     this.setState({ pad });
   }
 
-  switchDoneTodo(e) {
+  async switchDoneTodo(e) {
     const targetElement = e.target.closest("li");
-    const targetTodoName = targetElement.getAttribute("data-todo-text");
+    const targetTodoText = targetElement.getAttribute("data-todo-text");
 
-    const todos = this.state.todos.map((todo) => {
-      if (todo.name === targetTodoName) {
+    const todos = this.state.pad.todos.map((todo) => {
+      if (todo.name === targetTodoText) {
         todo.isDone = !todo.isDone;
       }
-
       return todo;
     });
+
+    const pad = this.state.pad;
+    pad.todos = todos;
+    await this.indexedDBManager.updatePad(pad);
 
     this.setState({ todos });
   }
