@@ -10,6 +10,7 @@ class PadList extends React.Component {
         key={id}
         deletePad={this.props.deletePad}
         updatePad={this.props.updatePad}
+        editPad={this.props.editPad}
       />
     ));
 
