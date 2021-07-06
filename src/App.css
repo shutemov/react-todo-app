@@ -60,17 +60,20 @@
   display: none;
 }
 
-.pad-manager__input-container {
+.pad-manager__input-container,
+.pad__input-container {
   position: relative;
 }
 
-.pad-manager__text-input {
+.pad-manager__text-input,
+.pad__title-input {
   width: 200px;
   padding: 10px;
   border-radius: 10px;
 }
 
-.pad-manager__create-pad-button {
+.pad-manager__create-pad-button,
+.pad__input-edit-button {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -79,7 +82,7 @@
 .pad-manager__pad-list {
 }
 
-.pad-manager__pad {
+.pad {
   display: grid;
   position: relative;
   align-items: center;
@@ -91,10 +94,10 @@
   background-color: #989391;
 }
 
-.pad-manager__delete-button {
+.pad__delete-button {
   position: absolute;
-  right: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   width: 64px;
   height: 64px;
   font-size: 32px;
@@ -102,7 +105,18 @@
   background-color: #989391;
 }
 
-.pad-manager__link {
+.pad__edit-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 64px;
+  height: 64px;
+  font-size: 32px;
+  border: none;
+  background-color: #989391;
+}
+
+.pad__link {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20pt;
   text-decoration: none;
