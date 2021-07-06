@@ -6,6 +6,33 @@ import IndexedDBManager from "../IndexedDBManager";
 class Pad extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      title: undefined,
+      isTitleEditing: false,
+    };
+
+    this.editTitle = this.editTitle.bind(this);
+    this._switchEditingMode = this._switchEditingMode.bind(this);
+    this._getConditionalTemplate = this._getConditionalTemplate.bind(this);
+  }
+
+  _switchEditingMode() {
+    const isTitleEditing = !this.state.isTitleEditing;
+    this.setState({ isTitleEditing });
+  }
+
+  _getConditionalTemplate() {
+    if (!this.state.isTitleEditing) {
+      return (
+        <Link className="pad__link" to={`/pads/${this.props.id}`}>
+          {this.state.title}
+        </Link>
+      );
+    }
+
+    return <PadTitleEditor editTitle={this.editTitle} />;
+  }
   }
 
   render() {
