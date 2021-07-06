@@ -47,6 +47,15 @@ class Pad extends React.Component {
     }
   }
 
+  async componentDidMount() {
+    try {
+      this.indexedDBManager = new IndexedDBManager("TodoPad", "Pads");
+      await this.indexedDBManager.init();
+    } catch (error) {
+      console.log(error);
+    }
+
+    this.setState({ title: this.props.title });
   }
 
   render() {
