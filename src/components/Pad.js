@@ -33,6 +33,20 @@ class Pad extends React.Component {
 
     return <PadTitleEditor editTitle={this.editTitle} />;
   }
+
+  async editTitle(newTitle) {
+    this._switchEditingMode();
+
+    try {
+      const padId = this.props.id;
+      const pad = await this.indexedDBManager.readPadById(padId);
+      pad.title = newTitle;
+      await this.props.updatePad(pad); //from pad manager
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   }
 
   render() {
