@@ -60,17 +60,23 @@ class Pad extends React.Component {
 
   render() {
     return (
-      <div className="pad-manager__pad">
-        <Link className="pad-manager__link" to={`/pads/${this.props.id}`}>
-          {this.props.title}
-        </Link>
+      <div className="pad">
+        {this._getConditionalTemplate()}
         <button
-          className="pad-manager__delete-button"
+          className="pad__delete-button"
           onClick={() => {
-            this.props.padDelete(this.props.id);
+            this.props.deletePad(this.props.id);
           }}
         >
           ❌
+        </button>
+        <button
+          className="pad__edit-button"
+          onClick={() => {
+            this.editTitle(this.props.id);
+          }}
+        >
+          ✏️
         </button>
       </div>
     );
