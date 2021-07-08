@@ -8,20 +8,23 @@ class TodoDoneList extends React.Component {
   }
 
   getDoneTodos() {
-    const doneTodos = this.props.todoList.filter((todo) => todo.isDone);
+    const { todos } = this.props;
+    const doneTodos = todos.filter((todo) => todo.isDone);
+
     return doneTodos;
   }
 
   getDoneTodosTemplate() {
+    const { switchDoneTodo } = this.props;
+
     const doneTodosTemplate = this.getDoneTodos().map(
       ({ name, isDone }, index) => {
         return (
           <DoneTodo
-            name={name}
-            todoDoner={this.props.todoDoner}
-            todoDeleter={this.props.todoDeleter}
-            isDone={isDone}
             key={index}
+            name={name}
+            switchDoneTodo={switchDoneTodo}
+            isDone={isDone}
           />
         );
       }
@@ -30,16 +33,13 @@ class TodoDoneList extends React.Component {
   }
 
   render() {
+    const { title, undoneAll } = this.props;
+    
     return (
       <div className="todo-done-list">
         <div className="todo-done-list__header">
-          <div className="todo-done-list__title">
-            {this.props.name}
-          </div>
-          <button
-            className="todo-done-list__drop-button"
-            onClick={this.props.undoneAll}
-          >
+          <div className="todo-done-list__title">{title}</div>
+          <button className="todo-done-list__drop-button" onClick={undoneAll}>
             Очистить
           </button>
         </div>

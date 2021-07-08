@@ -3,14 +3,16 @@ import Pad from "./Pad";
 
 class PadList extends React.Component {
   getPadsTemplate() {
-    const mappedPads = this.props.pads.map(({ id, title }) => (
+    const { pads, deletePad, updatePad, editPad } = this.props;
+
+    const mappedPads = pads.map(({ id, title }) => (
       <Pad
+        key={id}
         id={id}
         title={title}
-        key={id}
-        deletePad={this.props.deletePad}
-        updatePad={this.props.updatePad}
-        editPad={this.props.editPad}
+        deletePad={deletePad}
+        updatePad={updatePad}
+        editPad={editPad}
       />
     ));
 

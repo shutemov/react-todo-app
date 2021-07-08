@@ -95,7 +95,7 @@ class TodoManager extends React.Component {
 
       const padId = this.props.padId;
       const pad = await this.indexedDBManager.readPadById(padId);
-    
+
       this.setState({ pad });
     } catch (error) {
       console.log(error);
@@ -103,20 +103,22 @@ class TodoManager extends React.Component {
   }
 
   render() {
+    const { todoListTitle } = this.props;
+
     return (
       <div className="pad-page__todo-manager">
         <TodoList
-          title={this.props.todoListTitle}
-          todoList={this.state.pad.todos}
-          todoDeleter={this.deleteTodo}
-          todoDoner={this.switchDoneTodo}
-          todoAdder={this.addTodo}
+          title={todoListTitle}
+          todos={this.state.pad.todos}
+          deleteTodo={this.deleteTodo}
+          switchDoneTodo={this.switchDoneTodo}
+          addTodo={this.addTodo}
         />
         <TodoDoneList
-          name="Выполнено"
-          todoList={this.state.pad.todos}
+          title="Выполнено"
+          todos={this.state.pad.todos}
           undoneAll={this.doUndoneAll}
-          todoDoner={this.switchDoneTodo}
+          switchDoneTodo={this.switchDoneTodo}
         />
       </div>
     );

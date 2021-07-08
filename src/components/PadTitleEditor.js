@@ -8,7 +8,6 @@ class PadTitleEditor extends React.Component {
     };
 
     this.putNewTitleToState = this.putNewTitleToState.bind(this);
-    this.editTitle = this.editTitle.bind(this);
   }
 
   putNewTitleToState(event) {
@@ -16,11 +15,9 @@ class PadTitleEditor extends React.Component {
     this.setState({ title });
   }
 
-  editTitle() {
-    this.props.editTitle(this.state.title);
-  }
-
   render() {
+    const { editTitle } = this.props;
+
     return (
       <div className="pad__input-container">
         <input
@@ -32,7 +29,9 @@ class PadTitleEditor extends React.Component {
         <button
           className="pad__input-edit-button"
           type="submit"
-          onClick={this.editTitle}
+          onClick={() => {
+            editTitle(this.state.title);
+          }}
         >
           ✔️
         </button>

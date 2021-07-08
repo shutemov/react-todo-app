@@ -1,11 +1,13 @@
 import React from "react";
-import Todo from "./DefaultTodo";
+import DefaultTodo from "./DefaultTodo";
 import TodoListViewer from "./TodoListViewer";
 import TodoAdder from "./TodoAdder";
 
 class TodoList extends React.Component {
   getUndoneTodos() {
-    const undoneTodos = this.props.todoList.filter((todo) => {
+    const { todos } = this.props;
+
+    const undoneTodos = todos.filter((todo) => {
       return !todo.isDone;
     });
 
@@ -13,13 +15,15 @@ class TodoList extends React.Component {
   }
 
   getTodosTemplate() {
+    const { switchDoneTodo, deleteTodo } = this.props;
+
     const todosTemplate = this.getUndoneTodos().map(
       ({ name, isDone }, index) => {
         return (
-          <Todo
-            name={name}
-            todoDoner={this.props.todoDoner}
-            todoDeleter={this.props.todoDeleter}
+          <DefaultTodo
+            textContent={name}
+            doneTodo={switchDoneTodo}
+            deleteTodo={deleteTodo}
             isDone={isDone}
             key={index}
           />
@@ -31,13 +35,14 @@ class TodoList extends React.Component {
   }
 
   render() {
+    const { title, addTodo } = this.props;
     return (
       <div className="todo-list">
-        <div className="todo-list__title ">{this.props.title}</div>
+        <div className="todo-list__title ">{title}</div>
         <TodoListViewer>
           <ol>{this.getTodosTemplate()}</ol>
         </TodoListViewer>
-        <TodoAdder todoAdder={this.props.todoAdder} />
+        <TodoAdder addTodo={addTodo} />
       </div>
     );
   }

@@ -35,13 +35,15 @@ class Pad extends React.Component {
   }
 
   async editTitle(newTitle) {
+    const { updatePad } = this.props;
+
     this._switchEditingMode();
 
     try {
       const padId = this.props.id;
       const pad = await this.indexedDBManager.readPadById(padId);
       pad.title = newTitle;
-      await this.props.updatePad(pad); //from pad manager
+      await updatePad(pad); //from pad manager
     } catch (error) {
       console.log(error);
     }
@@ -59,13 +61,14 @@ class Pad extends React.Component {
   }
 
   render() {
+    const { id, deletePad } = this.props;
     return (
       <div className="pad">
         {this._getConditionalTemplate()}
         <button
           className="pad__delete-button"
           onClick={() => {
-            this.props.deletePad(this.props.id);
+            deletePad(id);
           }}
         >
           ❌
@@ -73,7 +76,7 @@ class Pad extends React.Component {
         <button
           className="pad__edit-button"
           onClick={() => {
-            this.editTitle(this.props.id);
+            this.editTitle(id);
           }}
         >
           ✏️

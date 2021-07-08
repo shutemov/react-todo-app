@@ -10,7 +10,7 @@ class DoneTodo extends React.Component {
           <div className="done-todo__button-wrapper">
             <button
               className="done-todo__switch-button"
-              onClick={this.props.todoDoner}
+              onClick={this.props.switchDoneTodo}
             ></button>
           </div>
         </div>

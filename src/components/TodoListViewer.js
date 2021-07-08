@@ -1,5 +1,5 @@
 import React from 'react'
-import Todo from './DefaultTodo'
+import DefaultTodo from './DefaultTodo'
 
 class TodoListViewer extends React.Component{
     constructor(props){
