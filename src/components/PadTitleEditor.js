@@ -1,4 +1,22 @@
 import React from "react";
+import styled from "styled-components";
+
+const InputContainer = styled.div`
+  position: relative;
+`;
+
+const Input = styled.input`
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+`;
+
+const Button = styled.button`
+  position: absolute;
+  right: 10px;
+  top: 10px;
+`;
+
 class PadTitleEditor extends React.Component {
   constructor(props) {
     super(props);
@@ -19,23 +37,21 @@ class PadTitleEditor extends React.Component {
     const { editTitle } = this.props;
 
     return (
-      <div className="pad__input-container">
-        <input
-          className="pad__title-input"
+      <InputContainer>
+        <Input
           type="text"
           placeholder="Enter new pad title here"
           onChange={this.putNewTitleToState}
         />
-        <button
-          className="pad__input-edit-button"
+        <Button
           type="submit"
           onClick={() => {
             editTitle(this.state.title);
           }}
         >
           ✔️
-        </button>
-      </div>
+        </Button>
+      </InputContainer>
     );
   }
 }
