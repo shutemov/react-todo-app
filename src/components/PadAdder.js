@@ -55,14 +55,21 @@ class PadAdder extends React.Component {
 
     this.state = {
       isCreating: false,
+      title: undefined,
     };
 
     this.switchCreatingMode = this.switchCreatingMode.bind(this);
     this.createPadProxy = this.createPadProxy.bind(this);
+    this._putNewTitleToState = this._putNewTitleToState.bind(this);
   }
 
   switchCreatingMode() {
     this.setState({ isCreating: !this.state.isCreating });
+  }
+
+  _putNewTitleToState(event) {
+    const title = event.target.value;
+    this.setState({ title });
   }
 
   _getCreatePadButtonContainer() {
@@ -76,7 +83,11 @@ class PadAdder extends React.Component {
   _getCreatePadInputContainer() {
     return (
       <InputContainer>
-        <Input type="text" placeholder="Enter pad title here" />
+        <Input
+          type="text"
+          placeholder="Enter pad title here"
+          onChange={this._putNewTitleToState}
+        />
         <Button
           type="submit"
           placeholder="Enter pad title here"
@@ -90,7 +101,8 @@ class PadAdder extends React.Component {
   }
 
   createPadProxy() {
-    this.props.padCreate();
+    const title = this.state.title
+    this.props.padCreate(title);
     this.switchCreatingMode();
   }
 

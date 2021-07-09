@@ -39,11 +39,8 @@ class PadManager extends React.Component {
     await this.indexedDBManager.init();
   }
 
-  async createPad() {
+  async createPad(title) {
     try {
-      const textInput = document.querySelector(".pad-manager__text-input");
-      const title = textInput.value; //todo FIX THIS
-
       if (!title) return;
 
       const todos = [];
@@ -70,6 +67,8 @@ class PadManager extends React.Component {
   async updatePad(pad) {
     try {
       await this.indexedDBManager.updatePad(pad);
+      const pads = await this.indexedDBManager.readAllPads();
+      this.setState({ pads });
     } catch (error) {
       console.log(error);
     }
