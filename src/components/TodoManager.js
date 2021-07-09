@@ -1,7 +1,17 @@
 import React from "react";
+import styled from "styled-components";
 import TodoList from "./TodoList";
 import TodoDoneList from "./TodoDoneList";
 import IndexedDBManager from "../IndexedDBManager";
+
+const StyledTodoManager = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: flex-start;
+  column-gap: 10%;
+`;
 
 class TodoManager extends React.Component {
   constructor(props) {
@@ -72,11 +82,13 @@ class TodoManager extends React.Component {
     pad.todos = todos;
     await this.indexedDBManager.updatePad(pad);
 
-    this.setState({ todos });
+    this.setState({ pad });
   }
 
   async doUndoneAll() {
-    const undoneTodos = this.state.pad.todos.map((todo) => {
+    const { todos } = this.state.pad;
+
+    const undoneTodos = todos.map((todo) => {
       todo.isDone = false;
       return todo;
     });
@@ -85,7 +97,7 @@ class TodoManager extends React.Component {
     pad.todos = undoneTodos;
     await this.indexedDBManager.updatePad(pad);
 
-    this.setState({ todos: undoneTodos });
+    this.setState({ pad });
   }
 
   async componentDidMount() {
@@ -95,7 +107,6 @@ class TodoManager extends React.Component {
 
       const padId = this.props.padId;
       const pad = await this.indexedDBManager.readPadById(padId);
-
       this.setState({ pad });
     } catch (error) {
       console.log(error);
@@ -103,13 +114,13 @@ class TodoManager extends React.Component {
   }
 
   render() {
-    const { todoListTitle } = this.props;
+    const { title, todos } = this.state.pad;
 
     return (
-      <div className="pad-page__todo-manager">
+      <StyledTodoManager>
         <TodoList
-          title={todoListTitle}
-          todos={this.state.pad.todos}
+          title={title}
+          todos={todos}
           deleteTodo={this.deleteTodo}
           switchDoneTodo={this.switchDoneTodo}
           addTodo={this.addTodo}
@@ -120,7 +131,7 @@ class TodoManager extends React.Component {
           undoneAll={this.doUndoneAll}
           switchDoneTodo={this.switchDoneTodo}
         />
-      </div>
+      </StyledTodoManager>
     );
   }
 }
