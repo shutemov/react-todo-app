@@ -1,7 +1,49 @@
 import React from "react";
+import styled from "styled-components";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import PadTitleEditor from "./PadTitleEditor";
 import IndexedDBManager from "../IndexedDBManager";
+
+const StyledPad = styled.div`
+  display: grid;
+  position: relative;
+  align-items: center;
+  justify-items: center;
+  width: 300px;
+  height: 300px;
+  border: 5px solid;
+  border-radius: 5px;
+  background-color: #989391;
+`;
+
+const DeleteButton = styled.button`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 64px;
+  height: 64px;
+  font-size: 32px;
+  border: none;
+  background-color: #989391;
+`;
+
+const EditButton = styled.button`
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 64px;
+  height: 64px;
+  font-size: 32px;
+  border: none;
+  background-color: #989391;
+`;
+
+const StyledLink = styled(Link)`
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20pt;
+  text-decoration: none;
+  color: #f5f3f5;
+`;
 
 class Pad extends React.Component {
   constructor(props) {
@@ -14,7 +56,7 @@ class Pad extends React.Component {
 
     this.editTitle = this.editTitle.bind(this);
     this._switchEditingMode = this._switchEditingMode.bind(this);
-    this._getConditionalTemplate = this._getConditionalTemplate.bind(this);
+    this._getConditionalTemplate = this._getLink.bind(this);
   }
 
   _switchEditingMode() {
@@ -22,15 +64,16 @@ class Pad extends React.Component {
     this.setState({ isTitleEditing });
   }
 
-  _getConditionalTemplate() {
-    if (!this.state.isTitleEditing) {
-      return (
-        <Link className="pad__link" to={`/pads/${this.props.id}`}>
-          {this.state.title}
-        </Link>
-      );
-    }
+  _getLink() {
+    const target = `/pads/${this.props.id}`;
+    return (
+      <StyledLink to={target}>
+        {this.state.title}
+      </StyledLink>
+    );
+  }
 
+  _getTitleEditor() {
     return <PadTitleEditor editTitle={this.editTitle} />;
   }
 
@@ -62,26 +105,26 @@ class Pad extends React.Component {
 
   render() {
     const { id, deletePad } = this.props;
+    const { isTitleEditing } = this.state;
+
     return (
-      <div className="pad">
-        {this._getConditionalTemplate()}
-        <button
-          className="pad__delete-button"
+      <StyledPad>
+        {isTitleEditing ? this._getTitleEditor() : this._getLink()}
+        <DeleteButton
           onClick={() => {
             deletePad(id);
           }}
         >
           ❌
-        </button>
-        <button
-          className="pad__edit-button"
+        </DeleteButton>
+        <EditButton
           onClick={() => {
             this.editTitle(id);
           }}
         >
           ✏️
-        </button>
-      </div>
+        </EditButton>
+      </StyledPad>
     );
   }
 }
