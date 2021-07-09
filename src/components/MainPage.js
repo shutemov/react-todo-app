@@ -1,6 +1,13 @@
 import React from "react";
+import styled from "styled-components";
 import AppLogo from "./AppLogo";
 import PadManager from "./PadManager";
+
+const StyledMainPage = styled.div`
+  display: grid;
+  grid-column: 1fr;
+  grid-row: 1fr 1fr;
+`;
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -9,10 +16,10 @@ class MainPage extends React.Component {
 
   render() {
     return (
-      <div className="main-page">
+      <StyledMainPage>
         <AppLogo />
         <PadManager />
-      </div>
+      </StyledMainPage>
     );
   }
 }
