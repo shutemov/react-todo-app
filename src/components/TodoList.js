@@ -1,16 +1,35 @@
 import React from "react";
+import styled from "styled-components";
 import DefaultTodo from "./DefaultTodo";
-import TodoListViewer from "./TodoListViewer";
+import TodosViewer from "./TodoListViewer";
 import TodoAdder from "./TodoAdder";
+
+const StyledTodoList = styled.div`
+  position: relative; /*for absolute position TodoAdder*/
+  width: 375px;
+  height: 500px;
+  border: 1px solid;
+  overflow: hidden;
+`;
+
+const OrderList = styled.ol`
+  list-style-position: inside;
+  padding-left: 0;
+  text-align: center;
+`;
+
+const Title = styled.div`
+  margin-left: 40px;
+  margin-top: 30px;
+  font-size: 20pt;
+`;
 
 class TodoList extends React.Component {
   getUndoneTodos() {
     const { todos } = this.props;
-
     const undoneTodos = todos.filter((todo) => {
       return !todo.isDone;
     });
-
     return undoneTodos;
   }
 
@@ -21,7 +40,7 @@ class TodoList extends React.Component {
       ({ name, isDone }, index) => {
         return (
           <DefaultTodo
-            textContent={name}
+            name={name}
             doneTodo={switchDoneTodo}
             deleteTodo={deleteTodo}
             isDone={isDone}
@@ -37,13 +56,13 @@ class TodoList extends React.Component {
   render() {
     const { title, addTodo } = this.props;
     return (
-      <div className="todo-list">
-        <div className="todo-list__title ">{title}</div>
-        <TodoListViewer>
-          <ol>{this.getTodosTemplate()}</ol>
-        </TodoListViewer>
+      <StyledTodoList>
+        <Title>{title}</Title>
+        <TodosViewer>
+          <OrderList>{this.getTodosTemplate()}</OrderList>
+        </TodosViewer>
         <TodoAdder addTodo={addTodo} />
-      </div>
+      </StyledTodoList>
     );
   }
 }
