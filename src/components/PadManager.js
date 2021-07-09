@@ -1,7 +1,22 @@
 import React from "react";
+import styled from "styled-components";
 import PadAdder from "./PadAdder";
 import PadList from "./PadList";
 import IndexedDBManager from "../IndexedDBManager";
+
+const StyledPadManager = styled.div`
+  display: grid;
+  align-items: center;
+  justify-items: center;
+`;
+
+const SubgridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  gap: 40px;
+  align-items: center;
+  justify-items: center;
+`;
 
 class PadManager extends React.Component {
   constructor(props) {
@@ -27,7 +42,7 @@ class PadManager extends React.Component {
   async createPad() {
     try {
       const textInput = document.querySelector(".pad-manager__text-input");
-      const title = textInput.value;
+      const title = textInput.value; //todo FIX THIS
 
       if (!title) return;
 
@@ -72,8 +87,8 @@ class PadManager extends React.Component {
 
   render() {
     return (
-      <div className="pad-manager">
-        <div className="pad-manager__subgrid-wrapper">
+      <StyledPadManager>
+        <SubgridContainer>
           <PadAdder padCreate={this.createPad} />
           <PadList
             pads={this.state.pads}
@@ -81,8 +96,8 @@ class PadManager extends React.Component {
             updatePad={this.updatePad}
             updatePadTitle={this.updatePadTitle}
           />
-        </div>
-      </div>
+        </SubgridContainer>
+      </StyledPadManager>
     );
   }
 }
