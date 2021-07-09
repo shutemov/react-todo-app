@@ -1,7 +1,16 @@
 import React from "react";
+import styled from "styled-components";
+import { withRouter } from "react-router-dom";
 import TodoManager from "./TodoManager";
 import BackToMainButton from "./BackToMainLogo";
-import { withRouter } from "react-router-dom";
+
+const StyledPadPage = styled.div`
+  display: grid;
+  grid-column: 1fr;
+  grid-row: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+`;
 
 class PadPage extends React.Component {
   constructor(props) {
@@ -19,10 +28,10 @@ class PadPage extends React.Component {
 
   render() {
     return (
-      <div className="pad-page">
+      <StyledPadPage>
         <BackToMainButton />
         <TodoManager padId={this.state.padId} />
-      </div>
+      </StyledPadPage>
     );
   }
 }
