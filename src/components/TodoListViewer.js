@@ -1,18 +1,22 @@
-import React from 'react'
-import DefaultTodo from './DefaultTodo'
+import React from "react";
+import styled from "styled-components";
+import DefaultTodo from "./DefaultTodo";
 
-class TodoListViewer extends React.Component{
-    constructor(props){
-        super(props)
-    }
+const StyledTodosViewer = styled.div`
+  padding: 0 12px 0 12px;
+  height: 90%;
+  overflow-y: scroll;
+`;
 
-    render(){
-        return (
-            <div className="todo-list-viewer">
-                {this.props.children}
-            </div>
-        )
-    }
+class TodosViewer extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const { children } = this.props;
+    return <StyledTodosViewer>{children}</StyledTodosViewer>;
+  }
 }
 
-export default TodoListViewer
+export default TodosViewer;
