@@ -1,4 +1,53 @@
 import React from "react";
+import styled from "styled-components";
+
+const StyledPadAdder = styled.div`
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  background-color: #a0a8b4;
+`;
+
+const ButtonContainer = styled.div`
+  width: 150px;
+  height: 150px;
+`;
+
+const PlusButton = styled.div`
+  background: #c4c4c4;
+  height: 150px;
+  width: 30px;
+  position: relative;
+  left: 60px;
+
+  &:after {
+    content: "";
+    height: 30px;
+    width: 150px;
+    background: #c4c4c4;
+    position: absolute;
+    left: -60px;
+    top: 60px;
+  }
+`;
+
+const InputContainer = styled.div`
+  position: relative;
+`;
+
+const Input = styled.input`
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+`;
+
+const Button = styled.button`
+  position: absolute;
+  right: 10px;
+  top: 10px;
+`;
 
 class PadAdder extends React.Component {
   constructor(props) {
@@ -9,7 +58,6 @@ class PadAdder extends React.Component {
     };
 
     this.switchCreatingMode = this.switchCreatingMode.bind(this);
-    this.getConditionalTemplate = this.getConditionalTemplate.bind(this);
     this.createPadProxy = this.createPadProxy.bind(this);
   }
 
@@ -17,35 +65,27 @@ class PadAdder extends React.Component {
     this.setState({ isCreating: !this.state.isCreating });
   }
 
-  getConditionalTemplate() {
-    if (!this.state.isCreating) {
-      return (
-        <div
-          className="pad-manager__create-button-container"
-          onClick={this.switchCreatingMode}
-        >
-          <div className="pad-manager__create-button " />
-        </div>
-      );
-    }
-
+  _getCreatePadButtonContainer() {
     return (
-      <div className="pad-manager__input-container">
-        <input
-          className="pad-manager__text-input"
-          type="text"
-          placeholder="Enter pad title here"
-        />
-        <button
-          className="pad-manager__create-pad-button"
+      <ButtonContainer onClick={this.switchCreatingMode}>
+        <PlusButton />
+      </ButtonContainer>
+    );
+  }
+
+  _getCreatePadInputContainer() {
+    return (
+      <InputContainer>
+        <Input type="text" placeholder="Enter pad title here" />
+        <Button
           type="submit"
           placeholder="Enter pad title here"
           value="+"
           onClick={this.createPadProxy}
         >
           +
-        </button>
-      </div>
+        </Button>
+      </InputContainer>
     );
   }
 
@@ -55,10 +95,14 @@ class PadAdder extends React.Component {
   }
 
   render() {
+    const { isCreating } = this.state;
+
     return (
-      <div className="pad-manager__pad-adder">
-        {this.getConditionalTemplate()}
-      </div>
+      <StyledPadAdder>
+        {isCreating
+          ? this._getCreatePadInputContainer()
+          : this._getCreatePadButtonContainer()}
+      </StyledPadAdder>
     );
   }
 }
