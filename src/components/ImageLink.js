@@ -4,9 +4,10 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const StyledLink = styled(Link)`
   font-size: 3em;
+  justify-self: center;
 `;
 
-class BackToMainButton extends React.Component {
+class ImageLink extends React.Component {
   render() {
     return (
       <StyledLink to="/">
@@ -19,4 +20,4 @@ class BackToMainButton extends React.Component {
   }
 }
 
-export default BackToMainButton;
+export default ImageLink;
