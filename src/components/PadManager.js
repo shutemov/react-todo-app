@@ -6,16 +6,13 @@ import IndexedDBManager from "../IndexedDBManager";
 
 const StyledPadManager = styled.div`
   display: grid;
-  align-items: center;
-  justify-items: center;
-`;
-
-const SubgridContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 300px);
+  grid-template-columns: repeat(3, min-content);
+  justify-self: center;
   gap: 40px;
-  align-items: center;
-  justify-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 class PadManager extends React.Component {
@@ -87,15 +84,13 @@ class PadManager extends React.Component {
   render() {
     return (
       <StyledPadManager>
-        <SubgridContainer>
-          <PadAdder padCreate={this.createPad} />
-          <PadList
-            pads={this.state.pads}
-            deletePad={this.deletePad}
-            updatePad={this.updatePad}
-            updatePadTitle={this.updatePadTitle}
-          />
-        </SubgridContainer>
+        <PadAdder padCreate={this.createPad} />
+        <PadList
+          pads={this.state.pads}
+          deletePad={this.deletePad}
+          updatePad={this.updatePad}
+          updatePadTitle={this.updatePadTitle}
+        />
       </StyledPadManager>
     );
   }

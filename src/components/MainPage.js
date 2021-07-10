@@ -5,8 +5,7 @@ import PadManager from "./PadManager";
 
 const StyledMainPage = styled.div`
   display: grid;
-  grid-column: 1fr;
-  grid-row: 1fr 1fr;
+  grid-template: 200px 1fr / 1fr;
 `;
 
 class MainPage extends React.Component {

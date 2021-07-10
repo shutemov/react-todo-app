@@ -36,13 +36,9 @@ const ButtonContainer = styled.div`
   width: 25%;
 `;
 
-const UndoneButton = styled.button`
-  width: 32px;
-  height: 32px;
-  border-radius: 40px;
-  background-color: #d7e9de;
-  border: none;
-  margin-left: 40%;
+const UndoneButton = styled.div`
+  font-size: 1.4em;
+  margin-left: 15px;
 `;
 
 class DoneTodo extends React.Component {
@@ -55,7 +51,7 @@ class DoneTodo extends React.Component {
         <LiBody>
           <Text> {name} </Text>
           <ButtonContainer>
-            <UndoneButton onClick={switchDoneTodo} />
+            <UndoneButton onClick={switchDoneTodo}>🔙</UndoneButton>
           </ButtonContainer>
         </LiBody>
       </Li>

@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 const StyledPadAdder = styled.div`
   display: grid;
-  justify-items: center;
-  align-items: center;
-  width: 100%;
+  width: 300px;
   height: 300px;
+  align-items: center;
+  justify-content: center;
   background-color: #a0a8b4;
 `;
 
@@ -16,20 +16,20 @@ const ButtonContainer = styled.div`
 `;
 
 const PlusButton = styled.div`
-  background: #c4c4c4;
-  height: 150px;
-  width: 30px;
   position: relative;
   left: 60px;
+  width: 30px;
+  height: 150px;
+  background: #c4c4c4;
 
   &:after {
-    content: "";
-    height: 30px;
-    width: 150px;
-    background: #c4c4c4;
     position: absolute;
     left: -60px;
     top: 60px;
+    width: 150px;
+    height: 30px;
+    content: "";
+    background: #c4c4c4;
   }
 `;
 
@@ -72,7 +72,7 @@ class PadAdder extends React.Component {
     this.setState({ title });
   }
 
-  _getCreatePadButtonContainer() {
+  _getCreatePadButtonFigure() {
     return (
       <ButtonContainer onClick={this.switchCreatingMode}>
         <PlusButton />
@@ -80,7 +80,7 @@ class PadAdder extends React.Component {
     );
   }
 
-  _getCreatePadInputContainer() {
+  _getCreatePadInput() {
     return (
       <InputContainer>
         <Input
@@ -101,7 +101,7 @@ class PadAdder extends React.Component {
   }
 
   createPadProxy() {
-    const title = this.state.title
+    const title = this.state.title;
     this.props.padCreate(title);
     this.switchCreatingMode();
   }
@@ -112,8 +112,8 @@ class PadAdder extends React.Component {
     return (
       <StyledPadAdder>
         {isCreating
-          ? this._getCreatePadInputContainer()
-          : this._getCreatePadButtonContainer()}
+          ? this._getCreatePadInput()
+          : this._getCreatePadButtonFigure()}
       </StyledPadAdder>
     );
   }

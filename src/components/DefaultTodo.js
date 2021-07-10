@@ -33,7 +33,8 @@ const Text = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 25%;
+  width: 27%;
+  margin-right: 10px;
 `;
 
 const DoneButton = styled.button`

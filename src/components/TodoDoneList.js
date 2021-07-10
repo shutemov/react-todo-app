@@ -23,7 +23,7 @@ const Title = styled.div`
   font-size: 20pt;
 `;
 
-const ClearButton = styled.div`
+const ClearButton = styled.button`
   border-radius: 40px;
   width: 100px;
   height: 40px;
