@@ -12,16 +12,16 @@ const StyledTodoList = styled.div`
   overflow: hidden;
 `;
 
-const OrderList = styled.ol`
-  list-style-position: inside;
-  padding-left: 0;
-  text-align: center;
-`;
-
 const Title = styled.div`
   margin-left: 40px;
   margin-top: 30px;
   font-size: 20pt;
+`;
+
+const OrderList = styled.ol`
+  list-style-position: inside;
+  padding-left: 0;
+  text-align: center;
 `;
 
 class TodoList extends React.Component {

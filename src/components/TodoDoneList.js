@@ -11,25 +11,32 @@ const StyledTodoDoneList = styled.div`
   overflow: hidden;
 `;
 
+const OrderList = styled.ol`
+  list-style-position: inside;
+  padding-left: 0;
+  text-align: center;
+`;
+
 const Header = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  padding-top: 30px;
-  padding-left: 40px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 `;
 
 const Title = styled.div`
+  margin-left: 40px;
+  margin-top: 30px;
   font-size: 20pt;
 `;
 
 const ClearButton = styled.button`
-  border-radius: 40px;
+  align-self: flex-end;
   width: 100px;
   height: 40px;
+  margin-right: 30px;
+  border-radius: 40px;
   background-color: #c4c4c4;
   border: none;
-  margin-left: 30px;
 `;
 
 class TodoDoneList extends React.Component {
@@ -72,7 +79,7 @@ class TodoDoneList extends React.Component {
           <ClearButton onClick={undoneAll}>Очистить</ClearButton>
         </Header>
         <TodosViewer>
-          <ol>{this.getDoneTodosTemplate()}</ol>
+          <OrderList>{this.getDoneTodosTemplate()}</OrderList>
         </TodosViewer>
       </StyledTodoDoneList>
     );

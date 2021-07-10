@@ -2,14 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import TodoManager from "./TodoManager";
-import BackToMainButton from "./BackToMainLogo";
+import ImageLink from "./ImageLink";
 
 const StyledPadPage = styled.div`
   display: grid;
-  grid-column: 1fr;
-  grid-row: 1fr 1fr;
-  align-items: center;
-  justify-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 200px 1fr;
 `;
 
 class PadPage extends React.Component {
@@ -29,7 +27,7 @@ class PadPage extends React.Component {
   render() {
     return (
       <StyledPadPage>
-        <BackToMainButton />
+        <ImageLink />
         <TodoManager padId={this.state.padId} />
       </StyledPadPage>
     );
