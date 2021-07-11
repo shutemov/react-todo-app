@@ -7,9 +7,13 @@ import IndexedDBManager from "../IndexedDBManager";
 const StyledTodoManager = styled.div`
   display: grid;
   grid-template-columns: min-content min-content;
-  grid-template-rows: 1fr;
-  gap:40px;
+  gap: 40px;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: min-content;
+    grid-template-rows: min-content min-content;
+  }
 `;
 
 class TodoManager extends React.Component {
