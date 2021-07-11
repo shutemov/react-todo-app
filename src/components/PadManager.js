@@ -28,12 +28,19 @@ class PadManager extends React.Component {
     this.updatePad = this.updatePad.bind(this);
     this.editPad = this.updatePad.bind(this);
     this._prepareIndexedDB = this._prepareIndexedDB.bind(this);
+    this._reloadPads = this._loadPads.bind(this);
   }
 
   async _prepareIndexedDB() {
     const [dbName, storeName] = ["TodoPad", "Pads"];
     this.indexedDBManager = new IndexedDBManager(dbName, storeName);
     await this.indexedDBManager.init();
+  }
+
+  async _loadPads(){
+    const pads = await this.indexedDBManager.readAllPads();
+    console.log("pads", pads);
+    this.setState({ pads });
   }
 
   async createPad(title) {
@@ -43,9 +50,7 @@ class PadManager extends React.Component {
       const todos = [];
       const newPad = { title, todos };
       await this.indexedDBManager.createPad(newPad);
-
-      const pads = await this.indexedDBManager.readAllPads();
-      this.setState({ pads });
+      await this._loadPads()
     } catch (error) {
       console.log(error);
     }
@@ -54,8 +59,7 @@ class PadManager extends React.Component {
   async deletePad(id) {
     try {
       await this.indexedDBManager.deletePadById(id);
-      const pads = await this.indexedDBManager.readAllPads();
-      this.setState({ pads });
+      await this._loadPads()
     } catch (error) {
       console.log(error);
     }
@@ -64,8 +68,7 @@ class PadManager extends React.Component {
   async updatePad(pad) {
     try {
       await this.indexedDBManager.updatePad(pad);
-      const pads = await this.indexedDBManager.readAllPads();
-      this.setState({ pads });
+      await this._loadPads()
     } catch (error) {
       console.log(error);
     }
@@ -74,8 +77,7 @@ class PadManager extends React.Component {
   async componentDidMount() {
     try {
       await this._prepareIndexedDB();
-      const pads = await this.indexedDBManager.readAllPads();
-      this.setState({ pads });
+      await this._loadPads()
     } catch (err) {
       console.log("componentDidMount error", err);
     }
