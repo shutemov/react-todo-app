@@ -65,12 +65,9 @@ class Pad extends React.Component {
   }
 
   _getLink() {
-    const target = `/pads/${this.props.id}`;
-    return (
-      <StyledLink to={target}>
-        {this.state.title}
-      </StyledLink>
-    );
+    const { title, id } = this.props;
+    const target = `/pads/${id}`;
+    return <StyledLink to={target}>{title}</StyledLink>;
   }
 
   _getTitleEditor() {
@@ -78,15 +75,13 @@ class Pad extends React.Component {
   }
 
   async editTitle(newTitle) {
-    const { updatePad } = this.props;
-
     this._switchEditingMode();
 
     try {
-      const padId = this.props.id;
-      const pad = await this.indexedDBManager.readPadById(padId);
+      const { updatePad, id } = this.props;
+      const pad = await this.indexedDBManager.readPadById(id);
       pad.title = newTitle;
-      await updatePad(pad); //from pad manager
+      await updatePad(pad);
     } catch (error) {
       console.log(error);
     }
@@ -117,13 +112,7 @@ class Pad extends React.Component {
         >
           ❌
         </DeleteButton>
-        <EditButton
-          onClick={() => {
-            this.editTitle(id);
-          }}
-        >
-          ✏️
-        </EditButton>
+        <EditButton onClick={this._switchEditingMode}>✏️</EditButton>
       </StyledPad>
     );
   }
